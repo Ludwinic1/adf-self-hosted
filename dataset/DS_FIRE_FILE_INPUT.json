@@ -13,9 +13,267 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Incident Number",
+				"type": "String"
+			},
+			{
+				"name": "Exposure Number",
+				"type": "String"
+			},
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "Address",
+				"type": "String"
+			},
+			{
+				"name": "Incident Date",
+				"type": "String"
+			},
+			{
+				"name": "Call Number",
+				"type": "String"
+			},
+			{
+				"name": "Alarm DtTm",
+				"type": "String"
+			},
+			{
+				"name": "Arrival DtTm",
+				"type": "String"
+			},
+			{
+				"name": "Close DtTm",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "zipcode",
+				"type": "String"
+			},
+			{
+				"name": "Battalion",
+				"type": "String"
+			},
+			{
+				"name": "Station Area",
+				"type": "String"
+			},
+			{
+				"name": "Box",
+				"type": "String"
+			},
+			{
+				"name": "Suppression Units",
+				"type": "String"
+			},
+			{
+				"name": "Suppression Personnel",
+				"type": "String"
+			},
+			{
+				"name": "EMS Units",
+				"type": "String"
+			},
+			{
+				"name": "EMS Personnel",
+				"type": "String"
+			},
+			{
+				"name": "Other Units",
+				"type": "String"
+			},
+			{
+				"name": "Other Personnel",
+				"type": "String"
+			},
+			{
+				"name": "First Unit On Scene",
+				"type": "String"
+			},
+			{
+				"name": "Estimated Property Loss",
+				"type": "String"
+			},
+			{
+				"name": "Estimated Contents Loss",
+				"type": "String"
+			},
+			{
+				"name": "Fire Fatalities",
+				"type": "String"
+			},
+			{
+				"name": "Fire Injuries",
+				"type": "String"
+			},
+			{
+				"name": "Civilian Fatalities",
+				"type": "String"
+			},
+			{
+				"name": "Civilian Injuries",
+				"type": "String"
+			},
+			{
+				"name": "Number of Alarms",
+				"type": "String"
+			},
+			{
+				"name": "Primary Situation",
+				"type": "String"
+			},
+			{
+				"name": "Mutual Aid",
+				"type": "String"
+			},
+			{
+				"name": "Action Taken Primary",
+				"type": "String"
+			},
+			{
+				"name": "Action Taken Secondary",
+				"type": "String"
+			},
+			{
+				"name": "Action Taken Other",
+				"type": "String"
+			},
+			{
+				"name": "Detector Alerted Occupants",
+				"type": "String"
+			},
+			{
+				"name": "Property Use",
+				"type": "String"
+			},
+			{
+				"name": "Area of Fire Origin",
+				"type": "String"
+			},
+			{
+				"name": "Ignition Cause",
+				"type": "String"
+			},
+			{
+				"name": "Ignition Factor Primary",
+				"type": "String"
+			},
+			{
+				"name": "Ignition Factor Secondary",
+				"type": "String"
+			},
+			{
+				"name": "Heat Source",
+				"type": "String"
+			},
+			{
+				"name": "Item First Ignited",
+				"type": "String"
+			},
+			{
+				"name": "Human Factors Associated with Ignition",
+				"type": "String"
+			},
+			{
+				"name": "Structure Type",
+				"type": "String"
+			},
+			{
+				"name": "Structure Status",
+				"type": "String"
+			},
+			{
+				"name": "Floor of Fire Origin",
+				"type": "String"
+			},
+			{
+				"name": "Fire Spread",
+				"type": "String"
+			},
+			{
+				"name": "No Flame Spead",
+				"type": "String"
+			},
+			{
+				"name": "Number of floors with minimum damage",
+				"type": "String"
+			},
+			{
+				"name": "Number of floors with significant damage",
+				"type": "String"
+			},
+			{
+				"name": "Number of floors with heavy damage",
+				"type": "String"
+			},
+			{
+				"name": "Number of floors with extreme damage",
+				"type": "String"
+			},
+			{
+				"name": "Detectors Present",
+				"type": "String"
+			},
+			{
+				"name": "Detector Type",
+				"type": "String"
+			},
+			{
+				"name": "Detector Operation",
+				"type": "String"
+			},
+			{
+				"name": "Detector Effectiveness",
+				"type": "String"
+			},
+			{
+				"name": "Detector Failure Reason",
+				"type": "String"
+			},
+			{
+				"name": "Automatic Extinguishing System Present",
+				"type": "String"
+			},
+			{
+				"name": "Automatic Extinguishing Sytem Type",
+				"type": "String"
+			},
+			{
+				"name": "Automatic Extinguishing Sytem Perfomance",
+				"type": "String"
+			},
+			{
+				"name": "Automatic Extinguishing Sytem Failure Reason",
+				"type": "String"
+			},
+			{
+				"name": "Number of Sprinkler Heads Operating",
+				"type": "String"
+			},
+			{
+				"name": "Supervisor District",
+				"type": "String"
+			},
+			{
+				"name": "neighborhood_district",
+				"type": "String"
+			},
+			{
+				"name": "point",
+				"type": "String"
+			}
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }
