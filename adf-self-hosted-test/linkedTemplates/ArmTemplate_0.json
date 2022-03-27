@@ -1,0 +1,1103 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-self-hosted-test"
+		},
+		"LS_ADLS_ADF_SELF_HOSTED_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsadfselfhosted.dfs.core.windows.net"
+		},
+		"LS_ADLS_OUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsadfselfhostedoutput.dfs.core.windows.net"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/IR-SHIR1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLS_ADF_SELF_HOSTED')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_ADLS_ADF_SELF_HOSTED_properties_typeProperties_url')]"
+				},
+				"connectVia": {
+					"referenceName": "IR-SHIR1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SHIR1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLS_OUTPUT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "sink ADLS",
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_ADLS_OUTPUT_properties_typeProperties_url')]"
+				},
+				"connectVia": {
+					"referenceName": "IR-SHIR1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SHIR1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_FIRE_FILE_INPUT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ADLS_ADF_SELF_HOSTED",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Fire_Incidents.csv",
+						"folderPath": "data",
+						"fileSystem": "first-container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Incident Number",
+						"type": "String"
+					},
+					{
+						"name": "Exposure Number",
+						"type": "String"
+					},
+					{
+						"name": "ID",
+						"type": "String"
+					},
+					{
+						"name": "Address",
+						"type": "String"
+					},
+					{
+						"name": "Incident Date",
+						"type": "String"
+					},
+					{
+						"name": "Call Number",
+						"type": "String"
+					},
+					{
+						"name": "Alarm DtTm",
+						"type": "String"
+					},
+					{
+						"name": "Arrival DtTm",
+						"type": "String"
+					},
+					{
+						"name": "Close DtTm",
+						"type": "String"
+					},
+					{
+						"name": "City",
+						"type": "String"
+					},
+					{
+						"name": "zipcode",
+						"type": "String"
+					},
+					{
+						"name": "Battalion",
+						"type": "String"
+					},
+					{
+						"name": "Station Area",
+						"type": "String"
+					},
+					{
+						"name": "Box",
+						"type": "String"
+					},
+					{
+						"name": "Suppression Units",
+						"type": "String"
+					},
+					{
+						"name": "Suppression Personnel",
+						"type": "String"
+					},
+					{
+						"name": "EMS Units",
+						"type": "String"
+					},
+					{
+						"name": "EMS Personnel",
+						"type": "String"
+					},
+					{
+						"name": "Other Units",
+						"type": "String"
+					},
+					{
+						"name": "Other Personnel",
+						"type": "String"
+					},
+					{
+						"name": "First Unit On Scene",
+						"type": "String"
+					},
+					{
+						"name": "Estimated Property Loss",
+						"type": "String"
+					},
+					{
+						"name": "Estimated Contents Loss",
+						"type": "String"
+					},
+					{
+						"name": "Fire Fatalities",
+						"type": "String"
+					},
+					{
+						"name": "Fire Injuries",
+						"type": "String"
+					},
+					{
+						"name": "Civilian Fatalities",
+						"type": "String"
+					},
+					{
+						"name": "Civilian Injuries",
+						"type": "String"
+					},
+					{
+						"name": "Number of Alarms",
+						"type": "String"
+					},
+					{
+						"name": "Primary Situation",
+						"type": "String"
+					},
+					{
+						"name": "Mutual Aid",
+						"type": "String"
+					},
+					{
+						"name": "Action Taken Primary",
+						"type": "String"
+					},
+					{
+						"name": "Action Taken Secondary",
+						"type": "String"
+					},
+					{
+						"name": "Action Taken Other",
+						"type": "String"
+					},
+					{
+						"name": "Detector Alerted Occupants",
+						"type": "String"
+					},
+					{
+						"name": "Property Use",
+						"type": "String"
+					},
+					{
+						"name": "Area of Fire Origin",
+						"type": "String"
+					},
+					{
+						"name": "Ignition Cause",
+						"type": "String"
+					},
+					{
+						"name": "Ignition Factor Primary",
+						"type": "String"
+					},
+					{
+						"name": "Ignition Factor Secondary",
+						"type": "String"
+					},
+					{
+						"name": "Heat Source",
+						"type": "String"
+					},
+					{
+						"name": "Item First Ignited",
+						"type": "String"
+					},
+					{
+						"name": "Human Factors Associated with Ignition",
+						"type": "String"
+					},
+					{
+						"name": "Structure Type",
+						"type": "String"
+					},
+					{
+						"name": "Structure Status",
+						"type": "String"
+					},
+					{
+						"name": "Floor of Fire Origin",
+						"type": "String"
+					},
+					{
+						"name": "Fire Spread",
+						"type": "String"
+					},
+					{
+						"name": "No Flame Spead",
+						"type": "String"
+					},
+					{
+						"name": "Number of floors with minimum damage",
+						"type": "String"
+					},
+					{
+						"name": "Number of floors with significant damage",
+						"type": "String"
+					},
+					{
+						"name": "Number of floors with heavy damage",
+						"type": "String"
+					},
+					{
+						"name": "Number of floors with extreme damage",
+						"type": "String"
+					},
+					{
+						"name": "Detectors Present",
+						"type": "String"
+					},
+					{
+						"name": "Detector Type",
+						"type": "String"
+					},
+					{
+						"name": "Detector Operation",
+						"type": "String"
+					},
+					{
+						"name": "Detector Effectiveness",
+						"type": "String"
+					},
+					{
+						"name": "Detector Failure Reason",
+						"type": "String"
+					},
+					{
+						"name": "Automatic Extinguishing System Present",
+						"type": "String"
+					},
+					{
+						"name": "Automatic Extinguishing Sytem Type",
+						"type": "String"
+					},
+					{
+						"name": "Automatic Extinguishing Sytem Perfomance",
+						"type": "String"
+					},
+					{
+						"name": "Automatic Extinguishing Sytem Failure Reason",
+						"type": "String"
+					},
+					{
+						"name": "Number of Sprinkler Heads Operating",
+						"type": "String"
+					},
+					{
+						"name": "Supervisor District",
+						"type": "String"
+					},
+					{
+						"name": "neighborhood_district",
+						"type": "String"
+					},
+					{
+						"name": "point",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_ADLS_ADF_SELF_HOSTED')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_FIRE_OUTPUT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ADLS_OUTPUT",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "output",
+						"fileSystem": "new-container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_ADLS_OUTPUT')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_COPY_DATA')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Incident Number",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Incident Number",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Exposure Number",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Exposure Number",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Address",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Address",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Incident Date",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Incident Date",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Call Number",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Call Number",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Alarm DtTm",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Alarm DtTm",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Arrival DtTm",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Arrival DtTm",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Close DtTm",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Close DtTm",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "City",
+											"type": "String"
+										},
+										"sink": {
+											"name": "City",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "zipcode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "zipcode",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Battalion",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Battalion",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Station Area",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Station Area",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Box",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Box",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Suppression Units",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Suppression Units",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Suppression Personnel",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Suppression Personnel",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EMS Units",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMS Units",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EMS Personnel",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMS Personnel",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Other Units",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Other Units",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Other Personnel",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Other Personnel",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "First Unit On Scene",
+											"type": "String"
+										},
+										"sink": {
+											"name": "First Unit On Scene",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Estimated Property Loss",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Estimated Property Loss",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Estimated Contents Loss",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Estimated Contents Loss",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fire Fatalities",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Fire Fatalities",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fire Injuries",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Fire Injuries",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Civilian Fatalities",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Civilian Fatalities",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Civilian Injuries",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Civilian Injuries",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of Alarms",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of Alarms",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Primary Situation",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Primary Situation",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Mutual Aid",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Mutual Aid",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Action Taken Primary",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Action Taken Primary",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Action Taken Secondary",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Action Taken Secondary",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Action Taken Other",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Action Taken Other",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Detector Alerted Occupants",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Detector Alerted Occupants",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Property Use",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Property Use",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Area of Fire Origin",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Area of Fire Origin",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Ignition Cause",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Ignition Cause",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Ignition Factor Primary",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Ignition Factor Primary",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Ignition Factor Secondary",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Ignition Factor Secondary",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Heat Source",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Heat Source",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Item First Ignited",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Item First Ignited",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Human Factors Associated with Ignition",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Human Factors Associated with Ignition",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Structure Type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Structure Type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Structure Status",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Structure Status",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Floor of Fire Origin",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Floor of Fire Origin",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fire Spread",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Fire Spread",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "No Flame Spead",
+											"type": "String"
+										},
+										"sink": {
+											"name": "No Flame Spead",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of floors with minimum damage",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of floors with minimum damage",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of floors with significant damage",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of floors with significant damage",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of floors with heavy damage",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of floors with heavy damage",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of floors with extreme damage",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of floors with extreme damage",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Detectors Present",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Detectors Present",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Detector Type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Detector Type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Detector Operation",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Detector Operation",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Detector Effectiveness",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Detector Effectiveness",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Detector Failure Reason",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Detector Failure Reason",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Automatic Extinguishing System Present",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Automatic Extinguishing System Present",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Automatic Extinguishing Sytem Type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Automatic Extinguishing Sytem Type",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Automatic Extinguishing Sytem Perfomance",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Automatic Extinguishing Sytem Perfomance",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Automatic Extinguishing Sytem Failure Reason",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Automatic Extinguishing Sytem Failure Reason",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Number of Sprinkler Heads Operating",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Number of Sprinkler Heads Operating",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Supervisor District",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Supervisor District",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "neighborhood_district",
+											"type": "String"
+										},
+										"sink": {
+											"name": "neighborhood_district",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "point",
+											"type": "String"
+										},
+										"sink": {
+											"name": "point",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_FIRE_FILE_INPUT",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_FIRE_OUTPUT",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-03-27T23:10:17Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_FIRE_FILE_INPUT')]",
+				"[concat(variables('factoryId'), '/datasets/DS_FIRE_OUTPUT')]"
+			]
+		}
+	]
+}
