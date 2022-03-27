@@ -43,577 +43,641 @@
 						"mappings": [
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 1
+									"name": "Incident Number",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Incident Number",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 2
+									"name": "Exposure Number",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Exposure Number",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 3
+									"name": "ID",
+									"type": "String"
 								},
 								"sink": {
+									"name": "ID",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 4
+									"name": "Address",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Address",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 5
+									"name": "Incident Date",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Incident Date",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 6
+									"name": "Call Number",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Call Number",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 7
+									"name": "Alarm DtTm",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Alarm DtTm",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 8
+									"name": "Arrival DtTm",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Arrival DtTm",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 9
+									"name": "Close DtTm",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Close DtTm",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 10
+									"name": "City",
+									"type": "String"
 								},
 								"sink": {
+									"name": "City",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 11
+									"name": "zipcode",
+									"type": "String"
 								},
 								"sink": {
+									"name": "zipcode",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 12
+									"name": "Battalion",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Battalion",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 13
+									"name": "Station Area",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Station Area",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 14
+									"name": "Box",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Box",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 15
+									"name": "Suppression Units",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Suppression Units",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 16
+									"name": "Suppression Personnel",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Suppression Personnel",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 17
+									"name": "EMS Units",
+									"type": "String"
 								},
 								"sink": {
+									"name": "EMS Units",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 18
+									"name": "EMS Personnel",
+									"type": "String"
 								},
 								"sink": {
+									"name": "EMS Personnel",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 19
+									"name": "Other Units",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Other Units",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 20
+									"name": "Other Personnel",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Other Personnel",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 21
+									"name": "First Unit On Scene",
+									"type": "String"
 								},
 								"sink": {
+									"name": "First Unit On Scene",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 22
+									"name": "Estimated Property Loss",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Estimated Property Loss",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 23
+									"name": "Estimated Contents Loss",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Estimated Contents Loss",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 24
+									"name": "Fire Fatalities",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Fire Fatalities",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 25
+									"name": "Fire Injuries",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Fire Injuries",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 26
+									"name": "Civilian Fatalities",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Civilian Fatalities",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 27
+									"name": "Civilian Injuries",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Civilian Injuries",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 28
+									"name": "Number of Alarms",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Number of Alarms",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 29
+									"name": "Primary Situation",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Primary Situation",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 30
+									"name": "Mutual Aid",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Mutual Aid",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 31
+									"name": "Action Taken Primary",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Action Taken Primary",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 32
+									"name": "Action Taken Secondary",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Action Taken Secondary",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 33
+									"name": "Action Taken Other",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Action Taken Other",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 34
+									"name": "Detector Alerted Occupants",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Detector Alerted Occupants",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 35
+									"name": "Property Use",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Property Use",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 36
+									"name": "Area of Fire Origin",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Area of Fire Origin",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 37
+									"name": "Ignition Cause",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Ignition Cause",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 38
+									"name": "Ignition Factor Primary",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Ignition Factor Primary",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 39
+									"name": "Ignition Factor Secondary",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Ignition Factor Secondary",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 40
+									"name": "Heat Source",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Heat Source",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 41
+									"name": "Item First Ignited",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Item First Ignited",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 42
+									"name": "Human Factors Associated with Ignition",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Human Factors Associated with Ignition",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 43
+									"name": "Structure Type",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Structure Type",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 44
+									"name": "Structure Status",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Structure Status",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 45
+									"name": "Floor of Fire Origin",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Floor of Fire Origin",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 46
+									"name": "Fire Spread",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Fire Spread",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 47
+									"name": "No Flame Spead",
+									"type": "String"
 								},
 								"sink": {
+									"name": "No Flame Spead",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 48
+									"name": "Number of floors with minimum damage",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Number of floors with minimum damage",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 49
+									"name": "Number of floors with significant damage",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Number of floors with significant damage",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 50
+									"name": "Number of floors with heavy damage",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Number of floors with heavy damage",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 51
+									"name": "Number of floors with extreme damage",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Number of floors with extreme damage",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 52
+									"name": "Detectors Present",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Detectors Present",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 53
+									"name": "Detector Type",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Detector Type",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 54
+									"name": "Detector Operation",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Detector Operation",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 55
+									"name": "Detector Effectiveness",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Detector Effectiveness",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 56
+									"name": "Detector Failure Reason",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Detector Failure Reason",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 57
+									"name": "Automatic Extinguishing System Present",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Automatic Extinguishing System Present",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 58
+									"name": "Automatic Extinguishing Sytem Type",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Automatic Extinguishing Sytem Type",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 59
+									"name": "Automatic Extinguishing Sytem Perfomance",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Automatic Extinguishing Sytem Perfomance",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 60
+									"name": "Automatic Extinguishing Sytem Failure Reason",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Automatic Extinguishing Sytem Failure Reason",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 61
+									"name": "Number of Sprinkler Heads Operating",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Number of Sprinkler Heads Operating",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 62
+									"name": "Supervisor District",
+									"type": "String"
 								},
 								"sink": {
+									"name": "Supervisor District",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 63
+									"name": "neighborhood_district",
+									"type": "String"
 								},
 								"sink": {
+									"name": "neighborhood_district",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 64
+									"name": "point",
+									"type": "String"
 								},
 								"sink": {
+									"name": "point",
 									"type": "String"
 								}
 							}
