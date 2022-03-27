@@ -1,0 +1,21 @@
+{
+	"name": "DS_FIRE_FILE_INPUT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_ADF_SELF_HOSTED",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
