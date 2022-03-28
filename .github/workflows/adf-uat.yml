@@ -8,29 +8,37 @@ on:
       resourceGroup:
         description: 'Resource group name'
         default: 'rg-adf-self-hosted-destination'
-        required: true 
+        required: true
+      targetADFName:
+        description: 'Target ADF to deploy to'
+        default: 'adf-self-hosted-uat'
+        required: true
 
 jobs:
   deploy-to-uat:
     name: Deploy to UAT 
     runs-on: ubuntu-latest
   
-  steps:
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    - name: Checkout
+    - name: Checkout adf_publish branch
       uses: actions/checkout@v3
+      with:
+        ref: 'adf_publish'
 
     - name: ADF UAT Deploy 
-    uses: Azure/data-factory-deploy-action@v1.2.0
-    with: 
-      resourceGroupName: ${{ github.event.inputs.resourceGroup }}
-      dataFactoryName: adf-self-hosted-uat
-      skipAzModuleInstallation: true 
-      
+      uses: Azure/data-factory-deploy-action@v1.2.0
+      with: 
+        resourceGroupName: ${{ github.event.inputs.resourceGroup }}
+        dataFactoryName: ${{ github.event.inputs.targetADFName }}
+        armTemplateFile: ./adf-self-hosted-test/ARMTemplateForFactory.json
+        armTemplateParametersFile: ./adf-self-hosted/ARMTemplateParametersForFactory.json
+        skipAzModuleInstallation: true 
+
     
 
 
