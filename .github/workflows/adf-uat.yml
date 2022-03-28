@@ -10,7 +10,7 @@ on:
         default: 'rg-adf-self-hosted-destination'
         required: true
       targetADFName:
-        description: 'Target ADF to deploy to'
+        description: "Target ADF to deploy to"
         default: 'adf-self-hosted-uat'
         required: true
 
