@@ -33,6 +33,8 @@ jobs:
 
     - name: Validate ADF 
       uses: actions/data-factory-validate@v1.1.5
+      with:
+        path: adf-self-hosted-test/ARMTemplateForFactory.json
 
     - name: ADF UAT Deploy 
       uses: Azure/data-factory-deploy-action@v1.2.0
