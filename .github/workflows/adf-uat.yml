@@ -32,7 +32,7 @@ jobs:
         ref: 'adf_publish'
 
     - name: Validate ADF 
-      uses: actions/data-factory-validate@v1.1.5
+      uses: Azure/data-factory-validate-action@v1.1.5
       with:
         path: adf-self-hosted-test/ARMTemplateForFactory.json
 
