@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       resourceGroup:
-        description: 'Resource group name'
+        description: "Resource group name"
         default: 'rg-adf-self-hosted-destination'
         required: true
       targetADFName:
