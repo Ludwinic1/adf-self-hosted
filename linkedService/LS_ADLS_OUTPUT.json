@@ -6,10 +6,6 @@
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://adlsadfselfhostedoutput.dfs.core.windows.net"
-		},
-		"connectVia": {
-			"referenceName": "IR-SHIR1",
-			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
