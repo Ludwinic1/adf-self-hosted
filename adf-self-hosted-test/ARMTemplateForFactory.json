@@ -1101,15 +1101,9 @@
 				"type": "AzureBlobFS",
 				"typeProperties": {
 					"url": "[parameters('LS_ADLS_OUTPUT_properties_typeProperties_url')]"
-				},
-				"connectVia": {
-					"referenceName": "IR-SHIR1",
-					"type": "IntegrationRuntimeReference"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SHIR1')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/TR_STORAGE_EVENT_TEST')]",
