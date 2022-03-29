@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "PL_WAIT_12",
+					"referenceName": "PL_WAIT_122",
 					"type": "PipelineReference"
 				}
 			}
