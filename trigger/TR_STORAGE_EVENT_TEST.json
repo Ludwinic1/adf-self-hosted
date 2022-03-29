@@ -17,8 +17,7 @@
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-selfhosted-test/providers/Microsoft.Storage/storageAccounts/adlsadfselfhosted",
 			"events": [
-				"Microsoft.Storage.BlobCreated",
-				"Microsoft.Storage.BlobDeleted"
+				"Microsoft.Storage.BlobCreated"
 			]
 		}
 	}
