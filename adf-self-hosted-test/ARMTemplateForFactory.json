@@ -18,10 +18,6 @@
 		"TR_STORAGE_EVENT_TEST_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-selfhosted-test/providers/Microsoft.Storage/storageAccounts/adlsadfselfhosted"
-		},
-		"shirname": {
-			"type": "string",
-			"defaultvalue": "IR-SHIR2" 
 		}
 	},
 	"variables": {
@@ -769,6 +765,30 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_WAIT_NEW')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_FIRE_FILE_INPUT')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1140,7 +1160,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/', parameters('shirname'))]",
+			"name": "[concat(parameters('factoryName'), '/IR-SHIR1')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
