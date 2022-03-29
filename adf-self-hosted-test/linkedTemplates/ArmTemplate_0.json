@@ -14,6 +14,10 @@
 		"LS_ADLS_OUTPUT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsadfselfhostedoutput.dfs.core.windows.net"
+		},
+		"TR_STORAGE_EVENT_TEST_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-selfhosted-test/providers/Microsoft.Storage/storageAccounts/adlsadfselfhosted"
 		}
 	},
 	"variables": {
@@ -91,6 +95,37 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SHIR1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_STORAGE_EVENT_TEST')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_WAIT_1",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/first-container/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('TR_STORAGE_EVENT_TEST_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated",
+						"Microsoft.Storage.BlobDeleted"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_WAIT_1')]"
 			]
 		},
 		{

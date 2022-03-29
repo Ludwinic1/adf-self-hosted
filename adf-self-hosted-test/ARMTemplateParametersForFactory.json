@@ -10,6 +10,9 @@
 		},
 		"LS_ADLS_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsadfselfhostedoutput.dfs.core.windows.net"
+		},
+		"TR_STORAGE_EVENT_TEST_properties_typeProperties_scope": {
+			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-selfhosted-test/providers/Microsoft.Storage/storageAccounts/adlsadfselfhosted"
 		}
 	}
 }

@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://adlsadfselfhostedoutput.dfs.core.windows.net"
 		},
+		"TR_STORAGE_EVENT_TEST_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-selfhosted-test/providers/Microsoft.Storage/storageAccounts/adlsadfselfhosted"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +51,9 @@
 					},
 					"LS_ADLS_OUTPUT_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLS_OUTPUT_properties_typeProperties_url')]"
+					},
+					"TR_STORAGE_EVENT_TEST_properties_typeProperties_scope": {
+						"value": "[parameters('TR_STORAGE_EVENT_TEST_properties_typeProperties_scope')]"
 					}
 				}
 			},
