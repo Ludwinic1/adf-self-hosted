@@ -17,6 +17,7 @@
 				"frequency": "Minute",
 				"interval": 15,
 				"startTime": "2022-04-14T15:04:00",
+				"endTime": "2022-04-15T18:13:11",
 				"timeZone": "Eastern Standard Time"
 			}
 		}
